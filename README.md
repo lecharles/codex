@@ -19,10 +19,10 @@ See [EXAMPLES.md](EXAMPLES.md) for usage examples and workflows.
 
 The MCP Server supports a plugin system under the `mcp_server/plugins/` directory. Plugins are automatically discovered and initialized for all commands and in the interactive shell.
 
-Currently provided plugins:
+Currently provided plugins (see [PLUGIN_GALLERY.md](PLUGIN_GALLERY.md)):
 
 - **example_connector**: Sample stub connector plugin.
-- **rest_api**: Exposes the graph over HTTP using Flask (requires `flask` package).
+- **rest_api**: Exposes the graph over HTTP using Flask (requires `flask`).
 
 To enable the REST API plugin, install its dependency:
 ```bash

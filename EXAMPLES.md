@@ -38,5 +38,7 @@ mcp-server --file demo.json shell
 
 You can run the provided demo scripts under `examples/`:
 
+See the full plugin gallery in [PLUGIN_GALLERY.md](PLUGIN_GALLERY.md).
+
 - `examples/demo_basic.sh`: CLI workflow (init, add nodes/edges, query).
 - `examples/demo_rest_api.sh`: Starts the REST API plugin in shell mode and queries via HTTP.
