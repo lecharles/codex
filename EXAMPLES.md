@@ -33,3 +33,10 @@ mcp-server --file demo.json query edges
 ```bash
 mcp-server --file demo.json shell
 ```
+
+## Demo Scripts
+
+You can run the provided demo scripts under `examples/`:
+
+- `examples/demo_basic.sh`: CLI workflow (init, add nodes/edges, query).
+- `examples/demo_rest_api.sh`: Starts the REST API plugin in shell mode and queries via HTTP.

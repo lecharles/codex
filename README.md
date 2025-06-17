@@ -28,3 +28,7 @@ To enable the REST API plugin, install its dependency:
 ```bash
 pip install flask
 ```
+
+## Releasing
+
+See [RELEASE.md](RELEASE.md) for details on publishing new versions to PyPI.
