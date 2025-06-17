@@ -18,7 +18,7 @@ gh project field-create "$PROJECT_NUMBER" \
 echo "[OK] Status field created or already present"
 
 # Add issues 6 & 7 to the project in 'To do'
-for issue in 6 7; do
+for issue in 6 7 8; do
   gh project item-add "$PROJECT_NUMBER" --owner lecharles --url https://github.com/lecharles/codex/issues/$issue || true
   gh project item-edit "$PROJECT_NUMBER" --owner lecharles --url https://github.com/lecharles/codex/issues/$issue --field Status="To do" || true
   echo "[OK] Issue #$issue added to 'To do'"
