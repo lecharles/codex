@@ -15,7 +15,11 @@ class Plugin(PluginBase):
         try:
             from flask import Flask, jsonify
         except ImportError:
-            print("Flask is required for REST API plugin. Skipping plugin.")
+            import sys
+            print(
+                "Flask is required for REST API plugin. Skipping plugin.",
+                file=sys.stderr,
+            )
             return
 
         app = Flask(self.name)
