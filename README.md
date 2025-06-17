@@ -32,3 +32,12 @@ pip install flask
 ## Releasing
 
 See [RELEASE.md](RELEASE.md) for details on publishing new versions to PyPI.
+
+## Project Board Setup
+
+To create and populate the GitHub Project board (MCP Server Roadmap), run:
+```bash
+.github/scripts/setup_project.sh
+```
+
+This will create the board, add a 'Status' field (To do, In progress, Done), and assign the documentation issues to 'To do'.
