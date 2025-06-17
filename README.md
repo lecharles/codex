@@ -14,3 +14,17 @@ pip install mcp-server
 ## Examples
 
 See [EXAMPLES.md](EXAMPLES.md) for usage examples and workflows.
+
+## Plugins
+
+The MCP Server supports a plugin system under the `mcp_server/plugins/` directory. Plugins are automatically discovered and initialized for all commands and in the interactive shell.
+
+Currently provided plugins:
+
+- **example_connector**: Sample stub connector plugin.
+- **rest_api**: Exposes the graph over HTTP using Flask (requires `flask` package).
+
+To enable the REST API plugin, install its dependency:
+```bash
+pip install flask
+```
