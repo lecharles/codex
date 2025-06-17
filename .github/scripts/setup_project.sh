@@ -8,7 +8,13 @@ PROJECT_NUMBER=$(echo "$PROJECT_JSON" | jq -r .number)
 echo "Created Project #$PROJECT_NUMBER: MCP Server Roadmap"
 
 # Create 'Status' single-select field
-gh project field-create "$PROJECT_NUMBER" --owner lecharles --name Status --type single_select --config '{"options":[{"name":"To do"},{"name":"In progress"},{"name":"Done"}]}'
+gh project field-create "$PROJECT_NUMBER" \
+  --owner lecharles \
+  --name Status \
+  --data-type SINGLE_SELECT \
+  --single-select-options "To do" \
+  --single-select-options "In progress" \
+  --single-select-options "Done"
 echo "Added Status field to project"
 
 # Add issues 6 & 7 to the project in 'To do'
