@@ -12,3 +12,8 @@ def test_load_plugins_empty(tmp_path, monkeypatch):
     plugins = load_plugins()
     assert isinstance(plugins, list)
     assert plugins == []
+
+def test_example_connector_plugin_loaded():
+    plugins = load_plugins()
+    names = [p.name for p in plugins]
+    assert "example_connector" in names
