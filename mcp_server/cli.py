@@ -64,9 +64,18 @@ def main():
 
     args = parser.parse_args()
 
+    # Load and initialize plugins
+    try:
+        from mcp_server.plugins import load_plugins
+        plugins = load_plugins()
+    except ImportError:
+        plugins = []
+
     # INIT
     if args.cmd == "init":
         graph = Graph()
+        for plugin in plugins:
+            plugin.initialize(graph)
         save_graph(graph, args.file)
         print(f"Initialized empty graph at {args.file}")
         return
@@ -74,6 +83,8 @@ def main():
     # NODE
     if args.cmd == "node":
         graph = load_graph(args.file)
+        for plugin in plugins:
+            plugin.initialize(graph)
         if args.node_cmd == "add":
             node_id = args.id or str(uuid4())
             attrs = {}
@@ -96,6 +107,8 @@ def main():
     # EDGE
     if args.cmd == "edge":
         graph = load_graph(args.file)
+        for plugin in plugins:
+            plugin.initialize(graph)
         if args.edge_cmd == "add":
             edge = Edge(args.source, args.target, args.type)
             graph.add_edge(edge)
@@ -121,6 +134,8 @@ def main():
     # QUERY
     if args.cmd == "query":
         graph = load_graph(args.file)
+        for plugin in plugins:
+            plugin.initialize(graph)
         if args.query_cmd == "nodes":
             for node in graph.nodes.values():
                 print(json.dumps({
@@ -142,7 +157,9 @@ def main():
     # SHELL
     if args.cmd == "shell":
         graph = load_graph(args.file)
-        start_shell(graph)
+        for plugin in plugins:
+            plugin.initialize(graph)
+        start_shell(graph, args.file)
         return
 
     parser.print_help()
